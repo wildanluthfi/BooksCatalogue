@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BookController@index');
+Route::get('/add', 'BookController@create');
+Route::get('/books/{book}', 'BookController@show');
+Route::get('/books/{book}/edit', 'BookController@edit');
+Route::post('/store', 'BookController@store');
+Route::delete('/books/{book}', 'BookController@destroy');
+
+Route::post('/review/store', 'ReviewController@store');
